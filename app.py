@@ -124,6 +124,7 @@ def olm_authenticate(username: str, password: str) -> Dict[str, Any]:
             "verify_status": verify_res.status_code,
             "cookies": list(cookies_verified.keys()),
         }
+        print(f"[LOGIN FAIL] {debug_info}", flush=True)
         return {"ok": False, "error": f"Đăng nhập thất bại ({debug_info})"}
 
     return {
