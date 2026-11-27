@@ -2,6 +2,7 @@ import os
 import re
 import time
 import uuid
+import cloudscraper
 from typing import Any, Dict, Optional
 from urllib.parse import urljoin
 
@@ -79,7 +80,7 @@ def _is_logged_in_html(html: str, final_url: str = "") -> bool:
 
 
 def olm_authenticate(username: str, password: str) -> Dict[str, Any]:
-    session = requests.Session()
+    session = cloudscraper.create_scraper()
     session.headers.update(DEFAULT_HEADERS)
     session.headers["Referer"] = LOGIN_URL
 
